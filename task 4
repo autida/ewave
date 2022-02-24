@@ -1,0 +1,22 @@
+Write a single sql query to show the info (book name, author name, publish date) of the last
+published book in January 2021
+Table books
+id: int
+author_id: int (reference to authors.id)
+book_name: varchar
+publish_date: timestamp
+Table authors
+id: int
+first_name: varchar
+last_name: varchar
+
+ANSWER: 
+
+SELECT books.book_name as book name, books.publish_date as publish date, CONCAT(authors.first_name,’ ‘, authors.last_name) as author name 
+FROM books 
+JOIN authors 
+ON books.authors_id = authors.id 
+WHERE books.publish_date < ‘2021-02-01’
+ORDER BY books.publish_date DESC
+LIMIT 1;
+
