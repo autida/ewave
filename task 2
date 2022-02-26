@@ -1,0 +1,10 @@
+TASK 2.
+
+ANSWER:
+A.	Protected $productSku = [];
+-	You can initialize your property in the __construct function.
+B.	$this->eventManager->dispatch(
+            'product_data_load',
+            $productSku
+        ); 
+-	Use $this->productSku rather than $productSku because it is already initialized;
