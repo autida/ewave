@@ -24,7 +24,9 @@ The part of backend logic of the website:
 
 1. Write the Sql-Injection which will show all records from the table.
  ANSWER: 
-            OR 1=1
+           website.com?x=1 OR 1=1
+            
+           website.com?x=1;Select * from news;
 
 2. Change the source code to make the  injection not workable
  ANSWER:
