@@ -1,0 +1,23 @@
+<?php
+class ParseJSON {
+  public $json;
+
+  function __construct($json) {
+    $this->json = $json; 
+  }
+  function parseArray() {
+  	$decode = json_decode($this->json,true);
+    if(is_array($decode)){
+    	return $decode;
+    }else{
+    $encode = json_encode($this->json);
+    	return json_decode($encode,true);
+    }
+  }
+}
+
+//$samplejson ='{"name":"John", "birth":"1986-12-14", "city":"New York"}';
+$samplejson = 'sadfsdf';
+$parsing = new ParseJSON($samplejson);
+var_dump($parsing->parseArray());
+?>
