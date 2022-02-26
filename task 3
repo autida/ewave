@@ -1,0 +1,54 @@
+/* The Task Description*/
+/*
+The incoming URL:
+website.com?x=1
+The Database consist the table:
+-- news
+---- id (int,11)
+---- short_description (varchar,255)
+---- article (text)
+Two records are already in the database
+1 desc1 text1
+2 desc2 text2
+*/
+
+The part of backend logic of the website:
+    $query = «SELECT anons,text FROM news WHERE id='».$_GET['x']."'";
+    $res = mysql_query($query);
+        if($res && mysql_num_rows($res)>0){
+            while($row = mysql_fetch_assoc($res)){
+                echo $row['anons'];
+                echo $row['text'];
+        }
+}
+
+1. Write the Sql-Injection which will show all records from the table.
+ ANSWER: 
+            OR 1=1
+
+2. Change the source code to make the  injection not workable
+ ANSWER:
+
+ $id = $mysqli -> real_escape_string($_GET['x']);
+ $query = «SELECT anons,text FROM news WHERE id='».$id."'";
+    $res = mysql_query($query);
+        if($res && mysql_num_rows($res)>0){
+            while($row = mysql_fetch_assoc($res)){
+                echo $row['anons'];
+                echo $row['text'];
+        }
+
+3. Return 404 header if the article with requested id is not found
+
+ANSWER:
+
+$id = $mysqli -> real_escape_string($_GET['x']);
+$query = «SELECT anons,text FROM news WHERE id='».$id."'";
+    $res = mysql_query($query);
+            if($res && mysql_num_rows($res)>0){
+                while($row = mysql_fetch_assoc($res)){
+                    echo $row['anons'];
+                    echo $row['text'];
+            }else{
+                   http_response_code(404); 
+            }
