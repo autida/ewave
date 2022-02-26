@@ -50,5 +50,5 @@ $query = «SELECT anons,text FROM news WHERE id='».$id."'";
                     echo $row['anons'];
                     echo $row['text'];
             }else{
-                   http_response_code(404); 
+                   header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found");
             }
