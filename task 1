@@ -16,8 +16,8 @@ class ParseJSON {
   }
 }
 
-//$samplejson ='{"name":"John", "birth":"1986-12-14", "city":"New York"}';
-$samplejson = 'sadfsdf';
+$samplejson ='{"name":"John", "birth":"1986-12-14", "city":"New York"}';
+//$samplejson = 'sadfsdf';
 $parsing = new ParseJSON($samplejson);
 var_dump($parsing->parseArray());
 ?>
